@@ -21,52 +21,44 @@
         <a href="index.html"><img src="images/logo.png" width="100px" alt="logo"></a>
         <a href="index.html" class="active">Home</a>
         <a href="emotions.html">Emotions</a>
+        <a href="video.html">Camera</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <header class="content_style_poppins" style="text-align: center;">
-        <div class="slider-container">
-            <div class="slider">
-              <div class="slides">
-                <div id="slides__1" class="slide">
-                    <span class="slide__text">
-                        <img src="../multimedia/gifs/scaredGif.gif" alt="Scared Gif" width="350px">    
-                    </span>
-                  <a class="slide__prev" href="#slides__4" title="Next"></a>
-                  <a class="slide__next" href="#slides__2" title="Next"></a>
-                </div>
-                <div id="slides__2" class="slide">
-                  <span class="slide__text">
-                    <img src="../multimedia/gifs/freezingGif.gif" alt="Freezing Gif" width="350px">
-                  </span>
-                  <a class="slide__prev" href="#slides__1" title="Prev"></a>
-                  <a class="slide__next" href="#slides__3" title="Next"></a>
-                </div>
-                <div id="slides__3" class="slide">
-                  <span class="slide__text">
-                    <img src="../multimedia/gifs/angryGif.gif" alt="Angry Gif" width="350px">
-                  </span>
-                  <a class="slide__prev" href="#slides__2" title="Prev"></a>
-                  <a class="slide__next" href="#slides__4" title="Next"></a>
-                </div>
-                <div id="slides__4" class="slide">
-                  <span class="slide__text">
-                    <img src="../multimedia/gifs/happyGif.gif" alt="Happy Gif" width="350px">
-                  </span>
-                  <a class="slide__prev" href="#slides__3" title="Prev"></a>
-                  <a class="slide__next" href="#slides__1" title="Prev"></a>
-                </div>
-              </div>
-              <div class="slider__nav">
-                <a class="slider__navlink" href="#slides__1"></a>
-                <a class="slider__navlink" href="#slides__2"></a>
-                <a class="slider__navlink" href="#slides__3"></a>
-                <a class="slider__navlink" href="#slides__4"></a>
-              </div>
-            </div>
-          </div>          
-    </header>
+    <main>
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 4</div>
+          <img src="../multimedia/gifs/scaredGif.gif" alt="Scared Gif" width="350px">
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 4</div>
+          <img src="../multimedia/gifs/freezingGif.gif" alt="Freezing Gif" width="350px">
+          
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 4</div>
+          <img src="../multimedia/gifs/angryGif.gif" alt="Angry Gif" width="350px">
+        </div>
+        <div class="mySlides fade">
+          <div class="numbertext">4 / 4</div>
+          <img src="../multimedia/gifs/happyGif.gif" alt="Happy Gif" width="350px">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
+    </main> 
 
     <footer class="footer">
         <div class="fitem-1">
@@ -75,9 +67,9 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="emotions.html">Emotions</a></li>
+                    <li><a href="video.html">Camera</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-
                 </ul>
             </div>
         </div>
@@ -98,9 +90,7 @@
                 <a href=""><i class="fab licolor fa-linkedin-in fa-2x"></i></a>
                 <a href=""><i class="fab instcolor fa-instagram fa-2x"></i></a>
                 <a href=""><i class="fab mediumcolor fa-medium fa-2x"></i></a>
-
             </div>
-
         </div>
 
         <div class="fitem-3">
@@ -115,12 +105,38 @@
                     <i class="fas fa-phone"></i>
                     <p style="text-align: center"><span>USA:</span>(+1) 123 456 7891</p>
                 </div>
-
-
             </div>
-
         </div>
     </footer>
     
+
+    <script>
+      let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" activeDot", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " activeDot";
+        }
+    </script>
+
 </body>
 </html>
