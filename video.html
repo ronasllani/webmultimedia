@@ -24,13 +24,17 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <div>
-        <video id="video" style="width:700px;" autoplay></video>
-        <div id="snap" class="button">Capture Emoji</div>
+    <div class="panels">
+        <div class="video-panel" style="width:720px;height: 405px;">
+            <video id="video" style="width:720px;height: 405px; border-radius: 10px;" autoplay></video>
+        </div>
+        
+        <div id="snap" class="button" style="margin-top: 15px;">Capture Emoji</div>
 
-        <canvas id="canvas" width="720px" height="480px"></canvas>
-    </div> 
-
+        <div class="video-panel">
+            <canvas id="canvas" width="720px" height="405px" style="border-radius: 10px;"><img src="images/default-picture.jpg"></canvas>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="fitem-1">
@@ -86,6 +90,12 @@
         const canvas = document.getElementById("canvas");
         const snap = document.getElementById("snap");
 
+        base_image = new Image();
+        base_image.src = 'images/default-picture.jpg';
+        base_image.onload = function(){
+            context.drawImage(base_image, 0,0);
+        }
+
         const constraints = {
             audio: false,//true
             video: {
@@ -105,8 +115,9 @@
         }
         var context = canvas.getContext('2d');
 
+
         snap.addEventListener('click',()=>{
-            context.drawImage(video,0,0,640,480);
+            context.drawImage(video,0,0,720,405);
         });
 
         startWebCam();

@@ -93,30 +93,25 @@ display: none;
 }
 }
 
+.panels{
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+
 .video-panel {
 display: flex;
 flex-direction: column;
-margin-top: 40px;
 padding: 0;
 justify-content: center;
 align-items: center;
-width: 720px;
-height:560px;
 }
 
-canvas {
-position: absolute;
-}
-
-.button-panel {
-display: flex;
-flex-direction: column;
-margin-top: 20px;
-padding: 0;
-justify-content: center;
-align-items: center;
-width: 100vw;
-}
+.canvas-panel{
+  display: flex;
+  flex-direction: column;
+} 
 
 .content_style_poppins {
 font-family: 'Poppins', sans-serif;
@@ -573,4 +568,4 @@ animation-duration: 1.5s;
 @keyframes fade {
 from {opacity: .4}
 to {opacity: 1}
-} 
+}  
